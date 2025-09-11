@@ -1,8 +1,12 @@
 // server.js
 import express from "express";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Enable CORS for all requests
+app.use(cors());
 
 // Example Data (in-memory)
 const provenanceTimeline = {
