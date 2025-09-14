@@ -10,3 +10,6 @@ Permissioned blockchain + IPFS + IoT + AI to prove provenance of Ayurvedic herb 
 - /iot (Raspberry Pi scripts)
 - /frontend (Consumer Portal)
 - /docs (Design, reports)
+
+
+-- Developed by Yash Kerkar & Ankit Bari
