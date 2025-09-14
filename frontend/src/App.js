@@ -1,3 +1,16 @@
+// import React from "react";
+// import HomePage from "./HomePage";
+
+// function App() {
+//   return (
+//     <div>
+//       <HomePage />
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BatchDetails from './BatchDetails';
 

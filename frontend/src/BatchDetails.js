@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+//import autoTable from "jspdf-autotable";
 import MapView from "./MapView";
 
 
@@ -16,14 +16,25 @@ function BatchDetails() {
       try {
         setError("");
 
+              // Fetch timeline data using env variable
+       
+
+              const resTimeline = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/provenance/${batchId}`
+      );
+
+
+
         // Fetch timeline data
-        const resTimeline = await fetch(`http://localhost:5000/api/v1/provenance/${batchId}`);
+        
         if (!resTimeline.ok) throw new Error("Batch not found");
         const timelineData = await resTimeline.json();
         setTimeline(timelineData.timeline);
 
+        
+
         // Fetch compliance report data
-        const resCompliance = await fetch(`http://localhost:5000/api/v1/compliance/${batchId}`);
+        const resCompliance = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/compliance/${batchId}`);
         if (!resCompliance.ok) throw new Error("Compliance report not found");
         const complianceData = await resCompliance.json();
         setCompliance(complianceData);
