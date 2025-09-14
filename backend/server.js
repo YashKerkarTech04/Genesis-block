@@ -1,6 +1,7 @@
 // server.js
 import express from "express";
 import cors from "cors";
+import QRCode from "qrcode";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -116,6 +117,31 @@ app.get("/api/v1/compliance/:batchId", (req, res) => {
     res.status(404).json({ error: "Batch not found" });
   }
 });
+
+// --- 5. Generate QR Code for Batch ---
+app.get("/api/v1/qrcode/:batchId", async (req, res) => {
+  const { batchId } = req.params;
+
+  try {
+    // React frontend page (scan should open this)
+    const redirectUrl = `https://genesis-block-iota.vercel.app/batch/${batchId}`;
+
+    // Set response headers for PNG image
+    res.setHeader("Content-Type", "image/png");
+
+    // Stream QR PNG directly
+    QRCode.toFileStream(res, redirectUrl, {
+      type: "png",
+      width: 400,     // size of QR code
+      margin: 2       // margin around QR
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: "Failed to generate QR code" });
+  }
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
