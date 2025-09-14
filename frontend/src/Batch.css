@@ -1,3 +1,12 @@
+.batch-container .underline {
+  width: 200px;
+  height: 4px;
+  background-color: #228b22;
+  margin: 10px auto 20px auto;
+  border-radius: 2px;
+  display:inline;
+}
+
 .batch-container {
   padding: 30px;
 }
@@ -7,6 +16,12 @@
   margin-bottom: 30px;
   font-size: 28px;
   color: #228b22;
+}
+
+.batch-intro{
+    text-align: center;
+    display:none;
+    margin-top: 10px;
 }
 
 .batch-grid {
@@ -48,6 +63,18 @@
   line-height: 1.4;
 }
 
+.cart-btn {
+  background: #ffdd57;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
 .buy-btn {
   background: #228b22;
   color: white;
@@ -69,8 +96,17 @@
 }
 
 .qr-img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-left:50px;
+
 }
 
 .qr-text {

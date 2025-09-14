@@ -15,27 +15,34 @@ function Batch() {
       image: "/images/ashwagandha.jpg",
       description:
         "Ashwagandha is an adaptogenic herb known for reducing stress and improving vitality.",
-      qr: "/images/ashwagandha-qr.png",
+      qr: "/images/tulsi-qr.jpg",
     },
     {
       name: "Neem",
       image: "/images/neem.jpg",
       description:
         "Neem leaves are known for their antibacterial, antifungal, and detoxifying properties.",
-      qr: "/images/neem-qr.png",
+      qr: "/images/tulsi-qr.jpg",
     },
      {
       name: "Shatavari",
       image: "/images/shatavari.jpg",
       description:
         "Shatavari is known for its benefits in women's health and hormonal balance.",
-      qr: "/images/shatavari-qr.png",
+      qr: "/images/tulsi-qr.jpg",
     },
   ];
 
   return (
     <div className="batch-container">
+    <div className="nav-placeholder">   
       <h1 className="batch-title">Herbal Batches</h1>
+    </div>
+      <p className="batch-intro">
+        Explore our range of Ayurvedic herbs with complete traceability from
+        source to shelf. Scan the QR codes for detailed provenance and
+        compliance information.
+      </p>
 
       <div className="batch-grid">
         {products.map((product, index) => (
@@ -45,7 +52,10 @@ function Batch() {
             <h2 className="product-name">{product.name}</h2>
             <p className="product-desc">{product.description}</p>
 
-            <button className="buy-btn">Buy</button>
+            <div className="button-group">
+              <button className="cart-btn">Add to Cart</button>
+              <button className="buy-btn">Buy Now</button>
+            </div>
 
             <div className="qr-section">
               <img src={product.qr} alt="QR Code" className="qr-img" />

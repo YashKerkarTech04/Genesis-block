@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import { FaTractor, FaProjectDiagram, FaCheckCircle, FaFileAlt, FaLock, FaLeaf } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay (e.g., fetching data)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+        <p>Loading Ayurveda Traceability...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Navbar */}
@@ -12,16 +32,14 @@ function HomePage() {
         <ul className="nav-links">
           <li>Home</li>
           <li>About</li>
-          
-           <li className="dropdown">
-              Features
-              <ul className="dropdown-menu">
-                <li><Link to="/batch">Herbal Batches</Link></li>
-                <li>Traceability Map</li>
-                <li>Blockchain Records</li>
-              </ul>
-            </li>
-
+          <li className="dropdown">
+            Features
+            <ul className="dropdown-menu">
+              <li><Link to="/batch">Herbal Batches</Link></li>
+              <li>Traceability Map</li>
+              <li>Blockchain Records</li>
+            </ul>
+          </li>
           <li>Contact</li>
         </ul>
         <div className="cta-buttons">
@@ -34,6 +52,7 @@ function HomePage() {
         <div className="welcome">
           <h1>Welcome to Ayurveda Traceability</h1>
           <p>Ensuring Transparency, Trust, and Sustainability</p>
+          <button className="explore-btn">Explore Now</button>
         </div>
       </header>
 
@@ -42,10 +61,8 @@ function HomePage() {
         <div className="card">
           <FaTractor className="card-icon" />
           <h3>Farmer Empowerment</h3>
-          <p>
-            Farmers and wild collectors get direct recognition for their work. 
-            Our platform ensures:
-          </p>
+          <div className="underline"></div>
+          <p>Farmers and wild collectors get direct recognition for their work. Our platform ensures:</p>
           <ul>
             <li>Fair pricing without middlemen</li>
             <li>Digital identity for each contributor</li>
@@ -56,6 +73,7 @@ function HomePage() {
         <div className="card">
           <FaProjectDiagram className="card-icon" />
           <h3>Supply Chain Transparency</h3>
+          <div className="underline"></div>
           <p>Every herb’s journey is tracked step by step using blockchain:</p>
           <ul>
             <li>Geo-tagged collection at the source</li>
@@ -67,6 +85,7 @@ function HomePage() {
         <div className="card">
           <FaCheckCircle className="card-icon" />
           <h3>Consumer Trust</h3>
+          <div className="underline"></div>
           <p>Consumers get the confidence of knowing the true origin of their products:</p>
           <ul>
             <li>Unique QR codes for each herbal batch</li>
@@ -80,6 +99,7 @@ function HomePage() {
         <div className="card">
           <FaFileAlt className="card-icon" />
           <h3>Regulatory Compliance</h3>
+          <div className="underline"></div>
           <p>Our system provides easy-to-access compliance data for regulators:</p>
           <ul>
             <li>Standardized lab test reports</li>
@@ -91,6 +111,7 @@ function HomePage() {
         <div className="card">
           <FaLock className="card-icon" />
           <h3>Data Security</h3>
+          <div className="underline"></div>
           <p>Data integrity is maintained using blockchain features:</p>
           <ul>
             <li>Tamper-proof digital ledgers</li>
@@ -102,6 +123,7 @@ function HomePage() {
         <div className="card">
           <FaLeaf className="card-icon" />
           <h3>Sustainability</h3>
+          <div className="underline"></div>
           <p>Encouraging eco-friendly and responsible sourcing practices:</p>
           <ul>
             <li>Geo-tagging ensures ethical collection zones</li>
