@@ -2,11 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Batch from "./batch";
+ import BatchDetails from './BatchDetails';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/batch/:batchId" element={<BatchDetails />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/batch" element={<Batch />} />
       </Routes>
