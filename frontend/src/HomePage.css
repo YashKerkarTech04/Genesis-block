@@ -1,3 +1,4 @@
+/* HomePage.css */
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -6,6 +7,7 @@
   height: 100vh;
   font-size: 18px;
   color: #2c3e50;
+  background: #f9f9f9;
 }
 
 .spinner {
@@ -24,12 +26,18 @@
   }
 }
 
-
 /* General Reset */
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
+  line-height: 1.6;
+  color: #333;
 }
 
 /* Navbar */
@@ -40,223 +48,378 @@ body {
   padding: 15px 30px;
   background-color: #228b22;
   color: white;
-  height:90px;
-}
-
-/* Dropdown styles */
-/* Fix overlap issue */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;   /* places below parent li */
-  left: 0;
-  background: #228b22;
-  color: white;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  min-width: 180px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  border-radius: 6px;
-  z-index: 9999;  /* stay above navbar */
-}
-
-.dropdown-menu li {
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-/* .dropdown-menu li:hover {
-  background: #f0f0f0;
-} */
-
-/* Hover effect to show dropdown */
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.hero {
-  height: 100vh;
-  background: url("ayurvedic-background.jpg") no-repeat center center;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
+  height: 90px;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
-  z-index: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-.welcome {
-  position: relative;
-  z-index: 1; 
-}
-
-
-.hero p {
-  font-size: 20px;
-}
-
-.intro {
-  flex: 1;
-  text-align: center;
-}
-
 
 .logo {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
+  z-index: 1001;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 60px;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .nav-links li {
   position: relative;
   cursor: pointer;
   transition: 0.3s;
+  padding: 8px 0;
 }
 
 .nav-links li:hover {
   color: #ffdd57;
 }
 
-.cta-buttons{
-    display: flex;
-    gap: 15px;
-    background-color: #ffdd57;
-    padding: 8px 15px;
-    color:black;
-    cursor:pointer;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.hero .welcome h1 {
-  font-size: 46px;
+.dropdown-arrow {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a7a1a;
+  color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown-menu.open {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li:hover {
+  background: #2ecc71;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.login-btn {
+  background-color: #ffdd57;
+  padding: 10px 20px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+  background-color: #ffd433;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("ayurvedic-background.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to top, #f9f9f9, transparent);
+}
+
+.welcome {
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 1;
+  animation: fadeUp 1s ease;
+}
+
+.welcome h1 {
+  font-size: 3.5rem;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
-.hero .welcome p {
-  font-size: 20px;
+.welcome p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
-
 
 .explore-btn {
-  margin-top:20px;
   background-color: white;
-  color: black;
+  color: #228b22;
   border: none;
-  padding: 12px 25px;
-  font-size: 18px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 /* Features Section */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px 20px;
-}
-
-.features .underline {
-  width: 200px;
-  height: 4px;
-  background-color: #228b22;
-  margin: 10px auto 20px auto;
-  border-radius: 2px;
-  display:inline;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 30px 5%;
+  background: #f9f9f9;
 }
 
 .card {
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-  display: flex;            /* make it flex container */
-  flex-direction: column;   /* stack children vertically */
-  align-items: center;      /* center all children horizontally */
-  text-align: center;       /* center text inside */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #228b22, #2ecc71);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon-container {
+  background: #f0f9f0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-icon-container {
+  background: #e0f3e0;
+  transform: scale(1.1);
 }
 
 .card-icon {
   font-size: 40px;
-  color: #2e7d32; /* green shade */
-  margin-bottom: 10px;
-}
-
-
-.card:hover {
-  transform: translateY(-5px);
+  color: #228b22;
 }
 
 .card h3 {
-  /* background-color: #228b22; */
-  margin-bottom: 10px;
-  color: black;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #228b22, #2ecc71);
+  margin: 0 auto 20px auto;
+  border-radius: 2px;
+}
+
+.card p {
+  margin-bottom: 15px;
+  color: #555;
 }
 
 .card ul {
-  margin-top: 10px;
+  text-align: left;
   padding-left: 20px;
-  font-size: 14px;
-  color: #444;;
+  color: #444;
+  margin-top: 15px;
 }
 
 .card ul li {
-  margin-bottom: 6px;
-  line-height: 1.4;
+  margin-bottom: 8px;
+  position: relative;
 }
 
+.card ul li::before {
+  content: "•";
+  color: #228b22;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 
+/* AYUSH Section */
+.ayush-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 5%;
+  gap: 40px;
+  background: linear-gradient(to right, #f4f9f4, #e8f5e8);
+}
 
+.ayush-image {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.ayush-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ayush-image img:hover {
+  transform: scale(1.03);
+}
+
+.ayush-info {
+  flex: 1;
+}
+
+.ayush-info h2 {
+  color: #228b22;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.ayush-info p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
 
 /* Footer */
 .footer {
   text-align: center;
-  padding: 15px;
+  padding: 25px;
   background: #333;
   color: white;
   margin-top: 30px;
 }
 
-/* Responsive */
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .welcome h1 {
+    font-size: 2.8rem;
+  }
+  
+  .welcome p {
+    font-size: 1.3rem;
+  }
+  
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 50px 5%;
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    font-size:11px;
-  }
-
-  .hero h1 {
-    font-size: 26px;
-  }
-
-  .hero p {
-    font-size: 16px;
+  .navbar {
+    padding: 15px 20px;
+    height: auto;
+    flex-wrap: wrap;
   }
 }

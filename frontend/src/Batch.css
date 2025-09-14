@@ -1,116 +1,415 @@
-.batch-container .underline {
-  width: 200px;
-  height: 4px;
-  background-color: #228b22;
-  margin: 10px auto 20px auto;
-  border-radius: 2px;
-  display:inline;
+/* Batch.css */
+.batch-container {
+  padding: 30px 60px;
+  background: linear-gradient(to bottom, #f9f9f9, #f0f7f0);
+  min-height: 100vh;
 }
 
-.batch-container {
-  padding: 30px;
+.nav-placeholder {
+  height: 90px;
+}
+
+.batch-header {
+  text-align: center;
+  margin-bottom:40px;
+  animation: fadeIn 0.8s ease;
 }
 
 .batch-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
+  font-size: 2.5rem;
   color: #228b22;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.batch-intro{
-    text-align: center;
-    display:none;
-    margin-top: 10px;
+.title-icon {
+  color: #2ecc71;
+  font-size: 2.2rem;
 }
 
+.underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #228b22, #2ecc71);
+  margin: 0 auto 25px auto;
+  border-radius: 2px;
+}
+
+.batch-intro {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+  animation: slideDown 0.5s ease;
+}
+
+.tab {
+  padding: 12px 25px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  border-color: #228b22;
+  color: #228b22;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(34, 139, 34, 0.1);
+}
+
+.tab.active {
+  background: #228b22;
+  color: white;
+  border-color: #228b22;
+}
+
+/* Batch Grid */
 .batch-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .batch-card {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .batch-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffdd57;
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
 }
 
 .product-img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.batch-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.batch-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.view-details-btn {
+  background: white;
+  color: #228b22;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background: #228b22;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Product Info */
+.product-info {
+  padding: 20px;
+  flex-grow: 1;
 }
 
 .product-name {
   color: #228b22;
   margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.product-origin {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.origin-label {
+  font-weight: bold;
+  color: #444;
 }
 
 .product-desc {
-  font-size: 14px;
-  color: #444;
+  color: #555;
   margin-bottom: 15px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.cart-btn {
-  background: #ffdd57;
-  color: black;
-  padding: 8px 16px;
+.harvest-info {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: auto;
+}
+
+.harvest-date {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  padding: 0 20px 20px;
+  gap: 10px;
+}
+
+.cart-btn, .buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-right: 10px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.cart-btn {
+  background: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.cart-btn:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
 }
 
 .buy-btn {
   background: #228b22;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 15px;
-  font-weight: bold;
-  transition: background 0.3s;
 }
 
 .buy-btn:hover {
-  background: #1a661a;
+  background: #1c7a1c;
+  transform: translateY(-2px);
 }
 
+.btn-icon {
+  font-size: 1rem;
+}
+
+/* QR Section */
 .qr-section {
-  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.qr-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #444;
+  font-weight: 600;
+}
+
+.qr-icon {
+  color: #228b22;
 }
 
 .qr-img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
-  margin-top: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background: white;
   padding: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-left:50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
 
+.qr-img:hover {
+  transform: scale(1.05);
 }
 
 .qr-text {
-  font-size: 12px;
+  font-size: 0.85rem;
   color: #666;
-  margin-top: 5px;
+  margin-top: 10px;
+}
+
+/* No Products */
+.no-products {
+  text-align: center;
+  padding: 50px 20px;
+  color: #666;
+}
+
+.no-products h3 {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .batch-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .batch-container {
+    padding: 15px;
+  }
+  
+  .nav-placeholder {
+    height: 70px;
+  }
+  
+  .batch-title {
+    font-size: 2rem;
+  }
+  
+  .category-tabs {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .batch-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .batch-title {
+    font-size: 1.8rem;
+  }
+  
+  .category-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+  
+  .batch-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .image-container {
+    height: 220px;
+  }
+  
+  .qr-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Scrollbar styling for category tabs */
+.category-tabs::-webkit-scrollbar {
+  height: 5px;
+}
+
+.category-tabs::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb {
+  background: #228b22;
+  border-radius: 10px;
 }
