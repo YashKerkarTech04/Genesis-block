@@ -16,6 +16,39 @@ body {
   height:90px;
 }
 
+/* Dropdown styles */
+/* Fix overlap issue */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;   /* places below parent li */
+  left: 0;
+  background: white;
+  color: black;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 9999;  /* stay above navbar */
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+
+/* Hover effect to show dropdown */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .hero {
   height: 100vh;
   background: url("ayurvedic-background.jpg") no-repeat center center;
@@ -41,14 +74,13 @@ body {
 
 .welcome {
   position: relative;
-  z-index: 1; /* text upar rahe */
+  z-index: 1; 
 }
+
 
 .hero p {
   font-size: 20px;
 }
-
-
 
 .intro {
   flex: 1;
@@ -68,6 +100,7 @@ body {
 }
 
 .nav-links li {
+  position: relative;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -88,14 +121,14 @@ body {
     transition: 0.3s;
 }
 
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
+.hero .welcome h1 {
+  font-size: 46px;
+  margin-bottom: 20px;
 }
 
-.hero p {
-  font-size: 18px;
+
+.hero .welcome p {
+  font-size: 20px;
 }
 
 /* Features Section */

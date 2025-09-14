@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomePage.css";
 import { FaTractor, FaProjectDiagram, FaCheckCircle, FaFileAlt, FaLock, FaLeaf } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -11,7 +12,16 @@ function HomePage() {
         <ul className="nav-links">
           <li>Home</li>
           <li>About</li>
-          <li>Features</li>
+          
+           <li className="dropdown">
+              Features
+              <ul className="dropdown-menu">
+                <li><Link to="/batch">Herbal Batches</Link></li>
+                <li>Traceability Map</li>
+                <li>Blockchain Records</li>
+              </ul>
+            </li>
+
           <li>Contact</li>
         </ul>
         <div className="cta-buttons">
@@ -22,7 +32,7 @@ function HomePage() {
       {/* ✅ Hero Section */}
       <header className="hero">
         <div className="welcome">
-          <h1>Welcome to Ayurvedic Traceability</h1>
+          <h1>Welcome to Ayurveda Traceability</h1>
           <p>Ensuring Transparency, Trust, and Sustainability</p>
         </div>
       </header>
