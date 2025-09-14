@@ -1,0 +1,181 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #228b22;
+  color: white;
+  height:90px;
+}
+
+.hero {
+  height: 100vh;
+  background: url("ayurvedic-background.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  z-index: 0;
+}
+
+.welcome {
+  position: relative;
+  z-index: 1; /* text upar rahe */
+}
+
+.hero p {
+  font-size: 20px;
+}
+
+
+
+.intro {
+  flex: 1;
+  text-align: center;
+}
+
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links li:hover {
+  color: #ffdd57;
+}
+
+.cta-buttons{
+    display: flex;
+    gap: 15px;
+    background-color: #ffdd57;
+    padding: 8px 15px;
+    color:black;
+    cursor:pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+/* Features Section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 20px;
+}
+
+
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  display: flex;            /* make it flex container */
+  flex-direction: column;   /* stack children vertically */
+  align-items: center;      /* center all children horizontally */
+  text-align: center;       /* center text inside */
+}
+
+.card-icon {
+  font-size: 40px;
+  color: #2e7d32; /* green shade */
+  margin-bottom: 10px;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  background-color: #228b22;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #444;;
+}
+
+.card ul li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+
+
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: white;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    font-size:11px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
