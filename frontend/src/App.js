@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
-import Batch from "./batch";
+import Batch from "./Batch";
  import BatchDetails from './BatchDetails';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/batch/:batchId" element={<BatchDetails />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/batch" element={<Batch />} />
+        <Route path="/Batch" element={<Batch />} />
       </Routes>
     </Router>
   );

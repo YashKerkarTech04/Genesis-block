@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Batch.css";
 import { FaShoppingCart, FaShoppingBag, FaQrcode, FaLeaf } from "react-icons/fa";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Batch() {
   const [activeTab, setActiveTab] = useState("all");
@@ -79,7 +81,9 @@ function Batch() {
     : products.filter(product => product.category === activeTab);
 
   return (
-    <div className="batch-container">
+    <>
+    <Navbar/>
+      <div className="batch-container">
       <div className="nav-placeholder"></div>
       
       <div className="batch-header">
@@ -182,6 +186,9 @@ function Batch() {
         </div>
       )}
     </div>
+
+    <Footer/>
+    </>
   );
 }
 
