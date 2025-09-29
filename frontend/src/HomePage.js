@@ -6,17 +6,13 @@ import {
   FaCheckCircle,
   FaFileAlt,
   FaLock,
-  FaLeaf,
-  FaBars,
-  FaTimes,
-  FaChevronDown
+  FaLeaf
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function HomePage() {
   const [loading, setLoading] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,58 +21,23 @@ function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
   if (loading) {
     return (
       <div className="loader-container">
         <div className="spinner"></div>
-        <p>Loading Ayurveda Traceability...</p>
+        <p>Loading AyushChain...</p>
       </div>
     );
   }
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">Ayurveda Traceability</div>
-
-        {/* Hamburger icon (mobile only) */}
-        <div className="hamburger" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </div>
-
-        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <li>Home</li>
-          <li>About</li>
-          <li className="dropdown" onClick={toggleDropdown}>
-            Features <FaChevronDown className="dropdown-arrow" />
-            <ul className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
-              <li>
-                <Link to="/batch" onClick={() => setMenuOpen(false)}>Herbal Batches</Link>
-              </li>
-              <li>Traceability Map</li>
-              <li>Blockchain Records</li>
-            </ul>
-          </li>
-          <li>Contact</li>
-        </ul>
-        <div className="cta-buttons">
-          <button className="login-btn">Login / Register</button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ✅ Hero Section */}
       <header className="hero">
         <div className="welcome">
-          <h1>Welcome to Ayurveda Traceability</h1>
+          <h1>Welcome to AyushChain</h1>
           <p>Ensuring Transparency, Trust, and Sustainability</p>
           <button className="explore-btn">Explore Now</button>
         </div>
@@ -190,10 +151,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>© 2025 Ayurveda Traceability Project | Team Genesis Blockers</p>
-      </footer>
+      <Footer/>
     </div>
   );
 }
